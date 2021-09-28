@@ -2,6 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const gridDisplay = document.querySelector('.grid');
     const scoreDisplay = document.querySelector('#score');
     const resultDisplay = document.querySelector('#results');
+    const resetButton = document.querySelector('.reset-button');
+    resetButton.onclick = () => { 
+        resetGame()
+    }
     const width = 4;
     const length = 4;
     const amountOfSquares = width * length;
@@ -220,6 +224,18 @@ document.addEventListener('DOMContentLoaded', () => {
             resultDisplay.innerHTML = 'You Lose!'
             document.removeEventListener('keyup', control)
         }
+    }
+
+    // Reset Game
+    function resetGame() {
+        score = 0;
+        scoreDisplay.innerHTML = score;
+        for (let i = 0; i < squares.length; i++) {                
+            squares[i].style.backgroundColor = "rgba(238, 228, 218, 0.35)";
+            squares[i].innerHTML = "";
+        }
+        generateNumber()
+        generateNumber()
     }
 
     // Handle Square Styling

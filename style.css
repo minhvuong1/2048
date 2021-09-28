@@ -19,7 +19,7 @@ main {
 
 .score-container {
     width: max-content;
-    margin: 40px 0;
+    margin: 20px 0;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -39,6 +39,32 @@ main {
 #score {
     font-size: 34px;
     color: white;
+}
+
+#results {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 22px;
+    color: crimson;
+    margin-bottom: 30px;
+    margin-top: -20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.button-container .reset-button {
+    background-color: crimson;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 6px 12px;
+    font-size: 22px;
+    font-variant: small-caps;
+    font-weight: bold;
 }
 
 .grid {
