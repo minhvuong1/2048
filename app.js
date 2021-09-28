@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Swipe Left
-    function moveleft() {
+    function moveLeft() {
         for (let i=0; i < amountOfSquares; i++) {
             if (i % 4 === 0 ) {
                 let totalOne = squares[i].innerHTML
@@ -83,5 +83,39 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // If two number in the row is the same, combine them
+    function combineRow() {
+        for (let i = 0; i < 15; i++) {
+            if (squares[i].innerHTML === squares[i+1].innerHTML) {
+                let combinedTotal = parseInt(squares[i].innerHTML) + parseInt(squares[i+1].innerHTML);
+                squares[i].innerHTML = combinedTotal;
+                squares[i+1].innerHTML = 0
+            }
+        }
+    }
+
+    // Assigning keycodes
+    function control(e) {
+        if (e.keyCode === 39) {
+            keyRight()
+        } else if (e.keyCode === 37) {
+            keyLeft()
+        }
+    }
+    document.addEventListener('keyup', control)
+
+    function keyRight() {
+        moveRight()
+        combineRow()
+        moveRight()
+        generateNumber()
+    }
+    
+    function keyLeft() {
+        moveLeft()
+        combineRow()
+        moveLeft()
+        generateNumber()
+    }
     
 })
