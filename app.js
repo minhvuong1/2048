@@ -212,12 +212,35 @@ document.addEventListener('DOMContentLoaded', () => {
         let zeros = 0
         for (let i = 0; i < squares.length; i++) {
             if (squares[i].innerHTML == 0) {
-                zeros++
+                zeros++;
             }
         }
         if (zeros === 0) {
             resultDisplay.innerHTML = 'You Lose!'
             document.removeEventListener('keyup', control)
+        }
+    }
+
+    // Handle Square Styling
+    function handleSquareStyling() {
+        for (let i = 0; i < squares.length; i++) {
+            if (squares[i].innerHTML == 2) {
+                squares[i].style.backgroundColor = "#eee4da";
+            } else if (squares[i].innerHTML == 4) {
+                squares[i].style.backgroundColor = "#eee1c9";
+            } else if (squares[i].innerHTML == 8) {
+                squares[i].style.backgroundColor = "#f3b27a";
+            } else if (squares[i].innerHTML == 16) {
+                squares[i].style.backgroundColor = "#f69664";
+            } else if (squares[i].innerHTML == 32) {
+                squares[i].style.backgroundColor = "#f77c5f";
+            } else if (squares[i].innerHTML == 64) {
+                squares[i].style.backgroundColor = "f75f3b";
+            } else if (squares[i].innerHTML == 128) {
+                squares[i].style.backgroundColor = "edd073";
+            } else if (squares[i].innerHTML == 256) {
+                squares[i].style.backgroundColor = "edd073";
+            }
         }
     }
     
