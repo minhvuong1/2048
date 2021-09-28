@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const amountOfSquares = width * length;
     const squares = []
     
+    // Generate Board
     function createBoard() {
         for (let i=0; i < amountOfSquares; i++) {
             square = document.createElement('div');
@@ -83,7 +84,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // If two number in the row is the same, combine them
+    // Swipe down
+    function moveDown() {
+        for (let i = 0; i < 4; i++) {
+            let totalOne = squares[i].innerHTML
+            let totalTwo = squares[i+width].innerHTML
+            let totalThree = squares[i+width*2].innerHTML
+            let totalFour = squares[i+width*3].innerHTML
+            let column = [parseInt(totalOne), parseInt(totalTwo), parseInt(totalThree), parseInt(totalFour)];
+
+            let filteredColumn = column.filter(num => num);
+            let numOfEmptySquaresInRow = 4 - filteredColumn.length;
+            let zeros = Array(numOfEmptySquaresInRow).fill(0);
+            let newColumn = zeros.concat(filteredColumn);
+            
+            squares[i].innerHTML = newColumn[0];
+            squares[i+width].innerHTML = newColumn[1];
+            squares[i+width*2].innerHTML = newColumn[2];
+            squares[i+width*3].innerHTML = newColumn[3];
+        }
+    }
+
+    // Swipe up
+    function moveUp() {
+        for (let i = 0; i < 4; i++) {
+            let totalOne = squares[i].innerHTML
+            let totalTwo = squares[i+width].innerHTML
+            let totalThree = squares[i+width*2].innerHTML
+            let totalFour = squares[i+width*3].innerHTML
+            let column = [parseInt(totalOne), parseInt(totalTwo), parseInt(totalThree), parseInt(totalFour)];
+
+            let filteredColumn = column.filter(num => num);
+            let numOfEmptySquaresInRow = 4 - filteredColumn.length;
+            let zeros = Array(numOfEmptySquaresInRow).fill(0);
+            let newColumn = filteredColumn.concat(zeros);
+            
+            squares[i].innerHTML = newColumn[0];
+            squares[i+width].innerHTML = newColumn[1];
+            squares[i+width*2].innerHTML = newColumn[2];
+            squares[i+width*3].innerHTML = newColumn[3];
+        }
+    }
+
+    // If two number in the row/column is the same, combine them
     function combineRow() {
         for (let i = 0; i < 15; i++) {
             if (squares[i].innerHTML === squares[i+1].innerHTML) {
@@ -94,12 +137,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function combineColumn() {
+        for (let i = 0; i < 12; i++) {
+            if (squares[i].innerHTML === squares[i+width].innerHTML) {
+                let combinedTotal = parseInt(squares[i].innerHTML) + parseInt(squares[i+width].innerHTML);
+                squares[i].innerHTML = combinedTotal;
+                squares[i+width].innerHTML = 0
+            }
+        }
+    }
+
     // Assigning keycodes
     function control(e) {
         if (e.keyCode === 39) {
             keyRight()
         } else if (e.keyCode === 37) {
             keyLeft()
+        } else if (e.keyCode === 38) {
+            keyUp()
+        } else if (e.keyCode === 40) {
+            keyDown()
         }
     }
     document.addEventListener('keyup', control)
@@ -115,6 +172,20 @@ document.addEventListener('DOMContentLoaded', () => {
         moveLeft()
         combineRow()
         moveLeft()
+        generateNumber()
+    }
+    
+    function keyDown() {
+        moveDown()
+        combineColumn()
+        moveDown()
+        generateNumber()
+    }
+    
+    function keyUp() {
+        moveUp()
+        combineColumn()
+        moveUp()
         generateNumber()
     }
     
