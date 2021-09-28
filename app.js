@@ -22,11 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     createBoard()
 
-    // Generate numbers to start game
+    // Generate numbers
     function generateNumber() {
         let randomNumber = Math.floor((Math.random() * squares.length))
         if (squares[randomNumber].innerHTML == 0) {
             squares[randomNumber].innerHTML = 2
+            handleSquareStyling()
             checkForGameover()
         } else generateNumber()
     }
@@ -224,8 +225,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle Square Styling
     function handleSquareStyling() {
         for (let i = 0; i < squares.length; i++) {
-            if (squares[i].innerHTML == 2) {
-                squares[i].style.backgroundColor = "#eee4da";
+            if (squares[i].innerHTML == 0) {
+                squares[i].style.backgroundColor = "rgba(238, 228, 218, 0.35)";
+                squares[i].innerHTML = "";
+            } else if (squares[i].innerHTML == 2) {
+                squares[i].style.backgroundColor = "rgb(228 222 216)";
             } else if (squares[i].innerHTML == 4) {
                 squares[i].style.backgroundColor = "#eee1c9";
             } else if (squares[i].innerHTML == 8) {
@@ -235,11 +239,13 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (squares[i].innerHTML == 32) {
                 squares[i].style.backgroundColor = "#f77c5f";
             } else if (squares[i].innerHTML == 64) {
-                squares[i].style.backgroundColor = "f75f3b";
+                squares[i].style.backgroundColor = "#f75f3b";
             } else if (squares[i].innerHTML == 128) {
-                squares[i].style.backgroundColor = "edd073";
+                squares[i].style.backgroundColor = "#edd073";
             } else if (squares[i].innerHTML == 256) {
-                squares[i].style.backgroundColor = "edd073";
+                squares[i].style.backgroundColor = "crimson"
+            } else if (squares[i].innerHTML > 256) {
+                squares[i].style.backgroundColor = "#a6122e";
             }
         }
     }

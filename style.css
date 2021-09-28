@@ -55,7 +55,7 @@ main {
 .grid div {
     width: 110px;
     height: 110px;
-    background-color: #eee4da;
+    background-color: #f8f5f0;
     font-size: 58px;
     font-weight: bold;
     display: flex;
@@ -63,6 +63,7 @@ main {
     justify-content: center;
     border: 7px solid #bbada0;
     border-radius: 12px;
+    color: white;
 }
 
 footer {
