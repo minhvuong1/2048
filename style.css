@@ -44,8 +44,8 @@ main {
 .grid {
     display: flex;
     flex-wrap: wrap;
-    width: 496px;
-    height: 496px;
+    width: 456px;
+    height: 456px;
     background-color: #bbada0;
     border: 7px solid #bbada0;
     border-radius: 6px;
@@ -53,8 +53,8 @@ main {
 }
 
 .grid div {
-    width: 110px;
-    height: 110px;
+    width: 100px;
+    height: 100px;
     background-color: #f8f5f0;
     font-size: 58px;
     font-weight: bold;
@@ -70,7 +70,7 @@ footer {
     display: flex;
     justify-content: center;
     font-family: "Helvetica Neue",Helvetica,Arial;
-    margin: 30px 0;
+    margin: 50px 0;
 }
 
 footer a {
