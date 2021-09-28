@@ -5,8 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const width = 4;
     const length = 4;
     const amountOfSquares = width * length;
-    const squares = []
-    
+    let squares = []
+    let score = 0;
+
     // Generate Board
     function createBoard() {
         for (let i=0; i < amountOfSquares; i++) {
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let randomNumber = Math.floor((Math.random() * squares.length))
         if (squares[randomNumber].innerHTML == 0) {
             squares[randomNumber].innerHTML = 2
+            checkForGameover()
         } else generateNumber()
     }
 
@@ -133,8 +135,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 let combinedTotal = parseInt(squares[i].innerHTML) + parseInt(squares[i+1].innerHTML);
                 squares[i].innerHTML = combinedTotal;
                 squares[i+1].innerHTML = 0
+                score += combinedTotal;
+                scoreDisplay.innerHTML = score
             }
         }
+        checkForWin()
     }
 
     function combineColumn() {
@@ -143,8 +148,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 let combinedTotal = parseInt(squares[i].innerHTML) + parseInt(squares[i+width].innerHTML);
                 squares[i].innerHTML = combinedTotal;
                 squares[i+width].innerHTML = 0
+                score += combinedTotal;
+                scoreDisplay.innerHTML = score
             }
         }
+        checkForWin()
     }
 
     // Assigning keycodes
@@ -187,6 +195,30 @@ document.addEventListener('DOMContentLoaded', () => {
         combineColumn()
         moveUp()
         generateNumber()
+    }
+
+    // Check for Win - Check for 2048 in a square
+    function checkForWin() {
+        for (let i = 0; i < squares.length; i++) {
+            if (squares[i].innerHTML == 2048) {
+                resultDisplay.innerHTML = 'You Win!'
+                document.removeEventListener('keyup', control)
+            }
+        }
+    }
+
+    // Check for Gameover
+    function checkForGameover() {
+        let zeros = 0
+        for (let i = 0; i < squares.length; i++) {
+            if (squares[i].innerHTML == 0) {
+                zeros++
+            }
+        }
+        if (zeros === 0) {
+            resultDisplay.innerHTML = 'You Lose!'
+            document.removeEventListener('keyup', control)
+        }
     }
     
 })
