@@ -1,7 +1,7 @@
 # 2048! Game
 2048 is a single player sliding block puzzle game, built with HTML/CSS and JavaScript.
 
-Try it out here: 
+Try it out here: https://2048-minhvuong.surge.sh/
 
 
 ## Rules of 2048:
