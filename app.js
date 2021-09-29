@@ -247,23 +247,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 squares[i].style.backgroundColor = "rgba(238, 228, 218, 0.35)";
                 squares[i].innerHTML = "";
             } else if (squares[i].innerHTML == 2) {
-                squares[i].style.backgroundColor = "rgb(228 222 216)";
+                squares[i].style.backgroundColor = "#FFA07A";
             } else if (squares[i].innerHTML == 4) {
-                squares[i].style.backgroundColor = "#eee1c9";
+                squares[i].style.backgroundColor = "#FA8072";
             } else if (squares[i].innerHTML == 8) {
-                squares[i].style.backgroundColor = "#f3b27a";
+                squares[i].style.backgroundColor = "#F08080";
             } else if (squares[i].innerHTML == 16) {
-                squares[i].style.backgroundColor = "#f69664";
+                squares[i].style.backgroundColor = "#f57e99";
             } else if (squares[i].innerHTML == 32) {
-                squares[i].style.backgroundColor = "#f77c5f";
+                squares[i].style.backgroundColor = "#c28bcc";
             } else if (squares[i].innerHTML == 64) {
-                squares[i].style.backgroundColor = "#f75f3b";
+                squares[i].style.backgroundColor = "#62d5c1";
             } else if (squares[i].innerHTML == 128) {
-                squares[i].style.backgroundColor = "#edd073";
+                squares[i].style.backgroundColor = "#ff8f52";
             } else if (squares[i].innerHTML == 256) {
-                squares[i].style.backgroundColor = "crimson"
+                squares[i].style.backgroundColor = "#5285ff"
             } else if (squares[i].innerHTML > 256) {
-                squares[i].style.backgroundColor = "#a6122e";
+                squares[i].style.backgroundColor = "#581845";
             }
         }
     }
