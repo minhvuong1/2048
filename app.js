@@ -236,6 +236,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         generateNumber()
         generateNumber()
+        resultDisplay.innerHTML = ''
+        document.addEventListener('keyup', control)
     }
 
     // Handle Square Styling
