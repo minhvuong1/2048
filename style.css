@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 main {
     display: flex;
     flex-direction: column;
@@ -15,6 +17,7 @@ main {
 .heading {
     font-size: 64px;
     align-self: center;
+    font-family: Lobster;
 }
 
 .score-container {
